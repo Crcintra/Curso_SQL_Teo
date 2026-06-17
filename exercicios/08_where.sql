@@ -1,0 +1,1 @@
+select * from transacao_produto where IdProduto = 15;
