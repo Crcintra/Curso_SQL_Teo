@@ -1,28 +1,41 @@
-SELECT avg(QtdePontos),
-       1. * sum(QtdePontos)/ count(IdCliente),
-       min(QtdePontos) As minCarteira,
-       max(QtdePontos) As maxCarteira,
-       sum(flTwitch),
-       sum(flEmail)
+## Funções de Agregação em SQL
+
+Nesta consulta foram utilizadas as principais funções de agregação para resumir informações da tabela `clientes`.
+
+### Exemplo
+
+```sql
+SELECT
+    AVG(QtdePontos) AS mediaPontos,
+    1.0 * SUM(QtdePontos) / COUNT(IdCliente) AS mediaCalculada,
+    MIN(QtdePontos) AS minCarteira,
+    MAX(QtdePontos) AS maxCarteira,
+    SUM(flTwitch) AS totalClientesTwitch,
+    SUM(flEmail) AS totalClientesEmail
 
 FROM clientes;
+```
 
-/*
+### Conceitos aprendidos
 
-Agregações
+- `COUNT()` → Conta a quantidade de registros.
+- `COUNT(DISTINCT coluna)` → Conta apenas os valores distintos.
+- `SUM()` → Soma os valores de uma coluna.
+- `AVG()` → Calcula a média dos valores.
+- `MIN()` → Retorna o menor valor.
+- `MAX()` → Retorna o maior valor.
+- Combinação de funções de agregação para gerar indicadores em uma única consulta.
+- Cálculo manual da média utilizando `SUM()` e `COUNT()`.
 
-Em muitos momentos desejamos alguns dados sumarizados, como
-por exemplo: contagem, média, variância, mínimo, máximo etc.DescCategoriaProduto
+### Resultado esperado
 
-Contade de linhas count(*)
+A consulta retorna:
 
-Contagem de linhas distintas: count(distinct column)
+- Média de pontos dos clientes.
+- Média calculada manualmente (`SUM / COUNT`).
+- Menor quantidade de pontos.
+- Maior quantidade de pontos.
+- Total de clientes com Twitch (`flTwitch`).
+- Total de clientes com e-mail (`flEmail`).
 
-soma: sum(column)
-
-média: avg(column)
-
-máx: max(column)
-
-
-*/
+> **Observação:** A express
