@@ -1,35 +1,47 @@
---Intervalos
---De 0 a 500 - ponei
---De 501 a 1000 - pomei premium
---De 1001 a 5000 - mago aprendiz
---de 5001 a 10000 - mago mestre
---+10001 - mago supremo
+## CASE WHEN - Classificação e criação de indicadores
 
+Nesta consulta foram utilizados múltiplos blocos `CASE WHEN` para:
 
-SELECT IdCliente, QtdePontos,
-CASE
-     WHEN QtdePontos <= 500 THEN 'ponei'
-     WHEN QtdePontos <= 1000 THEN 'ponei premium'
-     WHEN QtdePontos <= 5000 THEN 'mago aprendiz'
-     WHEN QtdePontos <= 10000 THEN 'mago mestre'
-     ELSE 'mago supremo'
-     END AS grupo,
+- Classificar clientes de acordo com a quantidade de pontos.
+- Criar colunas calculadas (flags) para identificar categorias específicas.
+- Ordenar os resultados com base na pontuação.
 
-CASE
-    WHEN QtdePontos <= 1000 THEN 1
-    ELSE 0
-END AS flPonei,
+### Exemplo
 
-CASE
-    WHEN QtdePontos > 1000 THEN 1
-    ELSE 0
-END AS flMago
+```sql
+SELECT
+    IdCliente,
+    QtdePontos,
 
-WHERE flPonei = 1
+    CASE
+        WHEN QtdePontos <= 500 THEN 'ponei'
+        WHEN QtdePontos <= 1000 THEN 'ponei premium'
+        WHEN QtdePontos <= 5000 THEN 'mago aprendiz'
+        WHEN QtdePontos <= 10000 THEN 'mago mestre'
+        ELSE 'mago supremo'
+    END AS grupo,
 
+    CASE
+        WHEN QtdePontos <= 1000 THEN 1
+        ELSE 0
+    END AS flPonei,
 
+    CASE
+        WHEN QtdePontos > 1000 THEN 1
+        ELSE 0
+    END AS flMago
 
-      FROM clientes
-       ORDER BY QtdePontos DESC;
+FROM clientes
+ORDER BY QtdePontos DESC;
+```
+
+### Conceitos aprendidos
+
+- Utilização de `CASE WHEN` para implementar regras de negócio.
+- Criação de colunas derivadas utilizando aliases (`AS`).
+- Geração de indicadores binários (flags) para facilitar análises.
+- Ordenação dos resultados com `ORDER BY`.
+
+> **Observação:** Não é possível utilizar um alias criado no `SELECT` diretamente na cláusula `WHERE`, pois o `WHERE` é executado antes do `SELECT`. Nesses casos, é necessário repetir a condição ou utilizar uma subconsulta (ou CTE).
 
 
