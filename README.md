@@ -1,29 +1,43 @@
 # Curso SQL - Teo Me Why
 
-Repositório destinado aos estudos e exercícios desenvolvidos durante o curso de SQL do Teo Me Why.
+Este repositório reúne os exercícios, consultas e desafios desenvolvidos durante o curso de SQL do Teo Me Why.https://github.com/Crcintra/Curso_SQL_Teo/blob/master/README.md
 
-## 🚀 Habilidades desenvolvidas
+O objetivo é consolidar conhecimentos em SQL voltados para análise de dados, explorando consultas, agregações, junções, subconsultas e boas práticas.
 
-- Escrita de consultas SQL
-- Filtragem e ordenação de dados
-- Agregação e agrupamento de informações
-- Manipulação de strings
-- Uso de funções condicionais (`CASE WHEN`)
-- Relacionamento entre tabelas (`JOINs`)
-- Subconsultas
-- Tratamento de valores nulos
-- Boas práticas de organização de consultas
+## Tecnologias
 
-## 📂 Conteúdo
+- SQL
+- PostgreSQL
+- DBeaver
 
-- Consultas básicas
-- Funções de agregação
-- GROUP BY e HAVING
-- JOINs
-- Subqueries
-- Manipulação de texto
-- Exercícios práticos
+## Conteúdo
 
-## 🎯 Objetivo
+- ✔ SELECT
+- ✔ WHERE
+- ✔ ORDER BY
+- ✔ LIMIT
+- ✔ GROUP BY
+- ✔ HAVING
+- ✔ CASE WHEN
+- ✔ Funções de agregação
+- ✔ JOINs
+- ✔ Subqueries
+- ✔ Manipulação de Strings
+- ✔ Boas práticas
 
-Consolidar os conhecimentos em SQL para aplicações em Análise de Dados, Ciência de Dados e Business Intelligence.
+## Estrutura
+
+```
+Curso_SQL_Teo
+│
+├── Aula_01
+├── Aula_02
+├── Aula_03
+├── Exercicios
+├── Desafios
+└── README.md
+```
+
+## Objetivo
+
+Desenvolver domínio da linguagem SQL aplicada à análise de dados e construção de consultas eficientes.
